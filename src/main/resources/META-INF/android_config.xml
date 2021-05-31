@@ -1,0 +1,7 @@
+<idea-plugin>
+    <project-components>
+        <component>
+            <implementation-class>me.haroldmartin.intellijbuildwebhooknotifier.listeners.AndroidBuildListener</implementation-class>
+        </component>
+    </project-components>
+</idea-plugin>

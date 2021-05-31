@@ -1,11 +1,13 @@
 <idea-plugin>
     <id>me.haroldmartin.intellijbuildwebhooknotifier</id>
-    <name>build-webhook-notifier</name>
-    <vendor>hbmartin</vendor>
+    <name>Build Webhook Notifier</name>
+    <vendor email="harold.martin@gmail.com" url="https://github.com/hbmartin/">Harold Martin</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends optional="true" config-file="android_config.xml">org.jetbrains.android</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.services.MyApplicationService"/>
@@ -16,4 +18,10 @@
         <listener class="me.haroldmartin.intellijbuildwebhooknotifier.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <project-components>
+        <component>
+            <implementation-class>me.haroldmartin.intellijbuildwebhooknotifier.listeners.BuildListener</implementation-class>
+        </component>
+    </project-components>
 </idea-plugin>

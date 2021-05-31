@@ -1,6 +1,6 @@
-package com.github.hbmartin.intellijbuildwebhooknotifier.services
+package me.haroldmartin.intellijbuildwebhooknotifier.services
 
-import com.github.hbmartin.intellijbuildwebhooknotifier.MyBundle
+import me.haroldmartin.intellijbuildwebhooknotifier.MyBundle
 import com.intellij.openapi.project.Project
 
 class MyProjectService(project: Project) {

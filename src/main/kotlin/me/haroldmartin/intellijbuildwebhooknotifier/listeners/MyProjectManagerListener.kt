@@ -1,6 +1,6 @@
-package com.github.hbmartin.intellijbuildwebhooknotifier.listeners
+package me.haroldmartin.intellijbuildwebhooknotifier.listeners
 
-import com.github.hbmartin.intellijbuildwebhooknotifier.services.MyProjectService
+import me.haroldmartin.intellijbuildwebhooknotifier.services.MyProjectService
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener

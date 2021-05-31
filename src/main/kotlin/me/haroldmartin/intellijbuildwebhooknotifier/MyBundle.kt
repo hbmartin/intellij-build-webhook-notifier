@@ -1,4 +1,4 @@
-package com.github.hbmartin.intellijbuildwebhooknotifier
+package me.haroldmartin.intellijbuildwebhooknotifier
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls

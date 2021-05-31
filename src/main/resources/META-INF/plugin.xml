@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.github.hbmartin.intellijbuildwebhooknotifier</id>
-    <name>intellij-build-webhook-notifier</name>
+    <id>me.haroldmartin.intellijbuildwebhooknotifier</id>
+    <name>build-webhook-notifier</name>
     <vendor>hbmartin</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -8,12 +8,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.hbmartin.intellijbuildwebhooknotifier.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.hbmartin.intellijbuildwebhooknotifier.services.MyProjectService"/>
+        <applicationService serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.services.MyApplicationService"/>
+        <projectService serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.hbmartin.intellijbuildwebhooknotifier.listeners.MyProjectManagerListener"
+        <listener class="me.haroldmartin.intellijbuildwebhooknotifier.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

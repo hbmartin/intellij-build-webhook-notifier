@@ -8,7 +8,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.task.ProjectTaskContext
 import com.intellij.task.ProjectTaskListener
 import com.intellij.task.ProjectTaskManager
-import com.intellij.task.ProjectTaskResult
 import me.haroldmartin.intellijbuildwebhooknotifier.ServiceLocator
 import me.haroldmartin.intellijbuildwebhooknotifier.model.BuildStatus
 
@@ -36,6 +35,13 @@ class BuildListener(project: Project) : BaseComponent {
                     projectName = project.name + " -- PTL"
                 )
             }
+        }
+
+        override fun started(context: ProjectTaskContext) {
+            buildNotifier(
+                buildStatus = BuildStatus.STARTED,
+                projectName = project.name + " -- PTL"
+            )
         }
     }
 

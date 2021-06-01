@@ -11,6 +11,7 @@ interface BuildNotifier {
 
 class WebhookBuildNotifier(private val notifyUrl: NotifyUrl) : BuildNotifier {
     override fun invoke(buildStatus: BuildStatus, projectName: String) {
+        println("$projectName -> $buildStatus")
         CoroutineScope(Dispatchers.IO).launch { notifyUrl("doesnt matter") }
     }
 }

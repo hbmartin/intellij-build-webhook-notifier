@@ -1,7 +1,7 @@
 package me.haroldmartin.intellijbuildwebhooknotifier.services
 
-import me.haroldmartin.intellijbuildwebhooknotifier.MyBundle
 import com.intellij.openapi.project.Project
+import me.haroldmartin.intellijbuildwebhooknotifier.MyBundle
 
 class MyProjectService(project: Project) {
 

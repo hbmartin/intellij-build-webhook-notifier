@@ -8,7 +8,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import me.haroldmartin.intellijbuildwebhooknotifier.model.BuildStatus
 import me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState
-import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.HttpMethod
+import me.haroldmartin.intellijbuildwebhooknotifier.model.HttpMethod
 
 interface NotifyUrl {
     suspend operator fun invoke(buildStatus: BuildStatus, projectName: String)
@@ -37,6 +37,7 @@ class NotifyUrlKtor(private val client: HttpClient) : NotifyUrl {
 }
 
 private fun String.substitute(buildStatus: BuildStatus, projectName: String): String {
-    return replace("\$project", projectName)
+    return trim()
+        .replace("\$project", projectName)
         .replace("\$status", buildStatus.name)
 }

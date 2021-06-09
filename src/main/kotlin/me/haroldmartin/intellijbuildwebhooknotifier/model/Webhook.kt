@@ -1,5 +1,5 @@
 @file:Suppress("ParameterListWrapping")
-package me.haroldmartin.intellijbuildwebhooknotifier.settings.model
+package me.haroldmartin.intellijbuildwebhooknotifier.model
 
 data class Webhook(
     val method: HttpMethod = HttpMethod.GET,

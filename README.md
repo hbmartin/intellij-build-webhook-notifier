@@ -5,7 +5,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/hbmartin/intellij-build-webhook-notifier)](https://github.com/hbmartin/intellij-build-webhook-notifier/issues)
 [![CodeFactor](https://www.codefactor.io/repository/github/hbmartin/intellij-build-webhook-notifier/badge)](https://www.codefactor.io/repository/github/hbmartin/intellij-build-webhook-notifier)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=hbmartin_intellij-build-webhook-notifier&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=hbmartin_intellij-build-webhook-notifier)
-![GitHub top language](https://img.shields.io/github/languages/top/hbmartin/intellij-build-webhook-notifier?color=FA8A0C)
 
 <!-- Plugin description -->
 Call a configurable webhook on build start, error, or success. Useful for sending push notifications, blinking lights, etc.

@@ -4,15 +4,12 @@ import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
-import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.HttpContentType
-import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.HttpMethod
-import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.Webhook
+import me.haroldmartin.intellijbuildwebhooknotifier.model.HttpContentType
+import me.haroldmartin.intellijbuildwebhooknotifier.model.HttpMethod
+import me.haroldmartin.intellijbuildwebhooknotifier.model.Webhook
 import javax.swing.JComponent
 import javax.swing.JPanel
 
-/**
- * Supports creating and managing a [JPanel] for the Settings Dialog.
- */
 class AppSettingsComponent {
     val panel: JPanel
     private val successWebhookTextField = JBTextField().apply { toolTipText = "URL" }

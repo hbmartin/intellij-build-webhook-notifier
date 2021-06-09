@@ -5,7 +5,7 @@ import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
-import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.Webhook
+import me.haroldmartin.intellijbuildwebhooknotifier.model.Webhook
 
 @State(
     name = "me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState",

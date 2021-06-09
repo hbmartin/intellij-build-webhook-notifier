@@ -20,7 +20,17 @@
 <!--    </applicationListeners>-->
 
     <extensions defaultExtensionNs="com.intellij">
-        <compiler.task execute="BEFORE" implementation="me.haroldmartin.intellijbuildwebhooknotifier.listeners.BeforeCompileListener"/>
+        <compiler.task
+                execute="BEFORE"
+                implementation="me.haroldmartin.intellijbuildwebhooknotifier.listeners.BeforeCompileListener"/>
+
+        <applicationConfigurable
+                parentId="tools"
+                instance="me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsConfigurable"
+                id="me.haroldmartin.intellijbuildwebhooknotifier.AppSettingsConfigurable"
+                displayName="application Configurable"/>
+        <applicationService
+                serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState"/>
     </extensions>
 
     <project-components>

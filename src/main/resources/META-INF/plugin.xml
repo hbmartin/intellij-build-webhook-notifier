@@ -28,7 +28,7 @@
                 parentId="tools"
                 instance="me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsConfigurable"
                 id="me.haroldmartin.intellijbuildwebhooknotifier.AppSettingsConfigurable"
-                displayName="application Configurable"/>
+                displayName="Webhooks"/>
         <applicationService
                 serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState"/>
     </extensions>

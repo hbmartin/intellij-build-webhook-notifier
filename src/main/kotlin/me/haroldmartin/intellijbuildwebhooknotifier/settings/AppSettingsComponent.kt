@@ -1,17 +1,14 @@
 package me.haroldmartin.intellijbuildwebhooknotifier.settings
 
-import com.intellij.application.options.schemes.AbstractSchemeActions
-import com.intellij.application.options.schemes.EditableSchemesCombo
-import com.intellij.application.options.schemes.SchemesModel
-import com.intellij.application.options.schemes.SimpleSchemesPanel
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
-import java.awt.event.ActionEvent
+import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.HttpContentType
+import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.HttpMethod
+import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.Webhook
 import javax.swing.JComponent
 import javax.swing.JPanel
-
 
 /**
  * Supports creating and managing a [JPanel] for the Settings Dialog.

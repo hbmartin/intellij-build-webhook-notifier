@@ -5,6 +5,7 @@ import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
+import me.haroldmartin.intellijbuildwebhooknotifier.settings.model.Webhook
 
 @State(
     name = "me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState",
@@ -13,7 +14,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 class AppSettingsState : PersistentStateComponent<AppSettingsState> {
     var successWebhook = Webhook()
 
-    override fun getState(): AppSettingsState  = this
+    override fun getState(): AppSettingsState = this
 
     override fun loadState(state: AppSettingsState) {
         XmlSerializerUtil.copyBean(state, this)
@@ -22,25 +23,5 @@ class AppSettingsState : PersistentStateComponent<AppSettingsState> {
     companion object {
         val instance: AppSettingsState
             get() = ServiceManager.getService(AppSettingsState::class.java)
-    }
-}
-
-data class Webhook(
-    val method: HttpMethod = HttpMethod.GET,
-    val url: String = "",
-    val body: String? = null,
-    val contentType: String? = null
-)
-
-enum class HttpMethod { GET, POST; }
-
-enum class HttpContentType(val raw: String) {
-    FORM("application/x-www-form-urlencoded"),
-    JSON("application/json");
-
-    companion object {
-        fun find(raw: String?): HttpContentType? {
-            return values().firstOrNull { it.raw == raw }
-        }
     }
 }

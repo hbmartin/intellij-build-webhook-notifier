@@ -8,7 +8,7 @@ interface NotifierLocator {
 }
 
 object ServiceLocator : NotifierLocator {
-    private val httpClient  by lazy { HttpClient(CIO) }
+    private val httpClient by lazy { HttpClient(CIO) }
     private val notifyUrl by lazy { NotifyUrlKtor(client = httpClient) }
     override val buildNotifier by lazy { WebhookBuildNotifier(notifyUrl = notifyUrl) }
 }

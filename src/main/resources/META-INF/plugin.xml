@@ -1,7 +1,11 @@
 <idea-plugin>
     <id>me.haroldmartin.intellijbuildwebhooknotifier</id>
     <name>Build Webhook Notifier</name>
-    <vendor email="harold.martin@gmail.com" url="https://github.com/hbmartin/">Harold Martin</vendor>
+    <vendor email="me@haroldmartin.me" url="https://github.com/hbmartin/">Harold Martin</vendor>
+
+    <description><![CDATA[
+        Call a configurable on build start, error, or success. Useful for sending push notifications, blink lights, etc.
+    ]]></description>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->

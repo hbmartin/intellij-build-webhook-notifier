@@ -1,4 +1,4 @@
-# Build Webhook Notifier
+# Build Webhook Notifier <img align="right" src="media/icon.png" />
 
 [![Version](https://img.shields.io/jetbrains/plugin/v/me.haroldmartin.intellijbuildwebhooknotifier.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 ![Build](https://github.com/hbmartin/intellij-build-webhook-notifier/workflows/Build/badge.svg)
@@ -32,6 +32,16 @@ Call a configurable webhook on build start, error, or success. Useful for sendin
   Download the [latest release](https://github.com/hbmartin/intellij-build-webhook-notifier/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
+## Contributing
+
+* [PRs](https://github.com/hbmartin/intellij-build-webhook-notifier/pulls) and [bug reports / feature requests](https://github.com/hbmartin/intellij-build-webhook-notifier/issues) are all welcome!
+* This project is linted with [ktlint](https://github.com/pinterest/ktlint) via [ktlint-gradle](https://github.com/JLLeitschuh/ktlint-gradle/tags) and statically analyzed with [detekt](https://github.com/detekt/detekt)
+* Treat other people with helpfulness, gratitude, and consideration! See the [JetBrains CoC](https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct)
+
+## Authors
+
+* [Harold Martin](https://www.linkedin.com/in/harold-martin-98526971/) - harold.martin at gmail
+* Significant inspiration drawn from [intellij-drumroll by mhashim6](https://github.com/mhashim6/intellij-drumroll)
 
 ## License
 

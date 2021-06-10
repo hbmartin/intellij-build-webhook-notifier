@@ -7,8 +7,8 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import me.haroldmartin.intellijbuildwebhooknotifier.model.BuildStatus
-import me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState
 import me.haroldmartin.intellijbuildwebhooknotifier.model.HttpMethod
+import me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState
 
 interface NotifyUrl {
     suspend operator fun invoke(buildStatus: BuildStatus, projectName: String)

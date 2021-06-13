@@ -1,11 +1,13 @@
 @file:Suppress("ParameterListWrapping")
 package me.haroldmartin.intellijbuildwebhooknotifier.model
 
+import com.intellij.util.xmlb.annotations.Tag
+
 data class Webhook(
-    val method: HttpMethod = HttpMethod.GET,
-    val url: String = "",
-    val body: String? = null,
-    val contentType: String? = null
+    @Tag val method: HttpMethod = HttpMethod.GET,
+    @Tag val url: String = "",
+    @Tag val body: String? = null,
+    @Tag val contentType: String? = null,
 )
 
 enum class HttpMethod { GET, POST; }

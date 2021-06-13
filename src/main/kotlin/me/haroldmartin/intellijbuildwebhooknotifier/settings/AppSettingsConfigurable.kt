@@ -7,7 +7,7 @@ import javax.swing.JComponent
 class AppSettingsConfigurable : Configurable {
     private var settingsComponent: AppSettingsComponent? = null
 
-    override fun getDisplayName(): String = "AppSettings Configurable"
+    override fun getDisplayName(): String = "Webhooks"
 
     override fun getPreferredFocusedComponent(): JComponent? {
         return settingsComponent?.preferredFocusedComponent
@@ -20,17 +20,18 @@ class AppSettingsConfigurable : Configurable {
 
     override fun isModified(): Boolean {
         val settings: AppSettingsState = AppSettingsState.instance
-        return settingsComponent?.successWebhook != settings.successWebhook
+        return settingsComponent?.successWebhook?.webhookModel != settings.successWebhook
     }
 
     override fun apply() {
-        val settings: AppSettingsState = AppSettingsState.instance
-        settings.successWebhook = settingsComponent!!.successWebhook
+        settingsComponent?.let {
+            println("SETTING : ${it.successWebhook.webhookModel}")
+            AppSettingsState.instance.successWebhook = it.successWebhook.webhookModel
+        }
     }
 
     override fun reset() {
-        val settings: AppSettingsState = AppSettingsState.instance
-        settingsComponent?.successWebhook = settings.successWebhook
+        settingsComponent?.successWebhook?.webhookModel = AppSettingsState.instance.successWebhook
     }
 
     override fun disposeUIResources() {

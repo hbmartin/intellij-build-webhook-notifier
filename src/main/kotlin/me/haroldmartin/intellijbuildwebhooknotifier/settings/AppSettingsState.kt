@@ -13,11 +13,14 @@ import me.haroldmartin.intellijbuildwebhooknotifier.model.Webhook
 )
 class AppSettingsState : PersistentStateComponent<AppSettingsState> {
     var successWebhook = Webhook()
+    var errorWebhook = Webhook()
+    var startingWebhook = Webhook()
+    var uniqueError: Boolean = false
+    var uniqueStarting: Boolean = false
 
     override fun getState(): AppSettingsState = this
 
     override fun loadState(state: AppSettingsState) {
-        println("STATE: ${state.successWebhook}")
         XmlSerializerUtil.copyBean(state, this)
     }
 

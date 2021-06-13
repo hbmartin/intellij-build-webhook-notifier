@@ -8,15 +8,31 @@ import me.haroldmartin.intellijbuildwebhooknotifier.model.HttpContentType
 import me.haroldmartin.intellijbuildwebhooknotifier.model.HttpMethod
 import me.haroldmartin.intellijbuildwebhooknotifier.model.Webhook
 import javax.swing.JComponent
+import javax.swing.JSeparator
 
-class WebhookView(private val label: String) {
-    val urlTextField = JBTextField().apply { toolTipText = "URL" }
-    val methodComboBox = ComboBox(HttpMethod.values())
-    val bodyTextField = JBTextField().apply { toolTipText = "Body" }
-    val contentTypeComboBox = ComboBox(HttpContentType.values())
+private const val INSET = 10
+
+class WebhookView(label: String, private val topInset: Int = 0) {
+    private val labelComponent = JBLabel(label)
+    private val urlTextField = JBTextField().apply { toolTipText = "URL" }
+    private val methodComboBox = ComboBox(HttpMethod.values())
+    private val bodyTextField = JBTextField().apply { toolTipText = "Body" }
+    private val contentTypeComboBox = ComboBox(HttpContentType.values())
+    private val separatorComponent = JSeparator()
 
     val preferredFocusedComponent: JComponent
         get() = urlTextField
+
+    var isVisible: Boolean
+        get() = urlTextField.isVisible
+        set(viz) {
+            labelComponent.isVisible = viz
+            urlTextField.isVisible = viz
+            methodComboBox.isVisible = viz
+            bodyTextField.isVisible = viz
+            contentTypeComboBox.isVisible = viz
+            separatorComponent.isVisible = viz
+        }
 
     var webhookModel: Webhook
         get() = Webhook(
@@ -42,13 +58,13 @@ class WebhookView(private val label: String) {
             contentTypeComboBox.isVisible = methodComboBox.isNotGet
         }
     }
-}
 
-internal fun FormBuilder.addWebhookView(webhookView: WebhookView): FormBuilder {
-    return addComponent(JBLabel("Success webhook: "))
-        .addLabeledComponent(webhookView.methodComboBox, webhookView.urlTextField, 1, false)
-        .addLabeledComponent(webhookView.contentTypeComboBox, webhookView.bodyTextField, 1, false)
-        .addSeparator()
+    fun addToForm(builder: FormBuilder): FormBuilder {
+        return builder.addComponent(labelComponent, topInset)
+            .addLabeledComponent(methodComboBox, urlTextField, INSET, false)
+            .addLabeledComponent(contentTypeComboBox, bodyTextField, 1, false)
+            .addComponent(separatorComponent)
+    }
 }
 
 private val ComboBox<HttpMethod>.isNotGet: Boolean

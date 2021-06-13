@@ -3,7 +3,6 @@ package me.haroldmartin.intellijbuildwebhooknotifier.settings
 import com.intellij.openapi.options.Configurable
 import javax.swing.JComponent
 
-// Provides controller functionality for application settings.
 class AppSettingsConfigurable : Configurable {
     private var settingsComponent: AppSettingsComponent? = null
 
@@ -20,18 +19,37 @@ class AppSettingsConfigurable : Configurable {
 
     override fun isModified(): Boolean {
         val settings: AppSettingsState = AppSettingsState.instance
-        return settingsComponent?.successWebhook?.webhookModel != settings.successWebhook
+        return settingsComponent?.let {
+            it.successWebhook.webhookModel != settings.successWebhook ||
+                it.errorWebhook.webhookModel != settings.errorWebhook ||
+                it.startingWebhook.webhookModel != settings.startingWebhook ||
+                it.uniqueErrorCheckBox.isSelected != settings.uniqueError ||
+                it.uniqueStartingCheckBox.isSelected != settings.uniqueStarting
+        } ?: true
     }
 
     override fun apply() {
         settingsComponent?.let {
-            println("SETTING : ${it.successWebhook.webhookModel}")
-            AppSettingsState.instance.successWebhook = it.successWebhook.webhookModel
+            with(AppSettingsState.instance) {
+                successWebhook = it.successWebhook.webhookModel
+                errorWebhook = it.errorWebhook.webhookModel
+                startingWebhook = it.startingWebhook.webhookModel
+                uniqueError = it.uniqueErrorCheckBox.isSelected
+                uniqueStarting = it.uniqueStartingCheckBox.isSelected
+            }
         }
     }
 
     override fun reset() {
-        settingsComponent?.successWebhook?.webhookModel = AppSettingsState.instance.successWebhook
+        settingsComponent?.let {
+            with(AppSettingsState.instance) {
+                it.successWebhook.webhookModel = successWebhook
+                it.errorWebhook.webhookModel = errorWebhook
+                it.startingWebhook.webhookModel = startingWebhook
+                it.uniqueErrorCheckBox.isSelected = uniqueError
+                it.uniqueStartingCheckBox.isSelected = uniqueStarting
+            }
+        }
     }
 
     override fun disposeUIResources() {

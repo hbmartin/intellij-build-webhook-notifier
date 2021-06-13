@@ -11,8 +11,6 @@ class AppSettingsComponent {
     val preferredFocusedComponent: JComponent
         get() = successWebhook.preferredFocusedComponent
 
-
-
     init {
         panel = FormBuilder.createFormBuilder()
             .addWebhookView(successWebhook)

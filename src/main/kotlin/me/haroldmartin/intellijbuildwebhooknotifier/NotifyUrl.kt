@@ -18,7 +18,9 @@ class NotifyUrlKtor(private val client: HttpClient) : NotifyUrl {
         val settings: AppSettingsState = AppSettingsState.instance
         val webhook = when (buildStatus) {
             BuildStatus.SUCCESS -> settings.successWebhook
-            else -> settings.successWebhook
+            BuildStatus.ERROR -> TODO()
+            BuildStatus.WARNING -> null
+            BuildStatus.STARTED -> null
         }
 
         val url = if (webhook?.url?.isNotEmpty() == true) webhook.url.substitute(buildStatus, projectName) else return

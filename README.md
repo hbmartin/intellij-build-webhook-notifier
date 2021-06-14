@@ -13,11 +13,10 @@ Call a configurable webhook on build start, error, or success. Useful for sendin
 ![Demo Screenshot](media/screenshot.png)
 
 ## Features
+
 * Supports GET or POST calls when build starts, fails, or succeeds
 * POST supports `application/json` and `application/x-www-form-urlencoded` body content
-* Use `$project` and `$status` variables in either URL or body string to substitute project name and status
 * Option for unique hooks for starting and error
-* (TODO) unique per-project hooks
 
 ## Installation
 
@@ -33,6 +32,15 @@ Call a configurable webhook on build start, error, or success. Useful for sendin
 
 ## Usage
 
+1. Go to <kbd>Settings/Preferences</kbd> > <kbd>Tools</kbd> > <kbd>Webhooks</kbd>
+2. Choose GET or POST call from the drop down and enter your webhook's URL.
+3. POST supports application/json and application/x-www-form-urlencoded body content.
+4. Build your project 🚀
+
+### Advanced
+* Use `$project` and `$status` variables in either URL or body string to substitute project name and status.
+* Check the unique webhook checkboxes to set up seperate calls for those statuses
+* Leave the URL fields blank to disable a webhook call for that status
 
 ## Contributing
 

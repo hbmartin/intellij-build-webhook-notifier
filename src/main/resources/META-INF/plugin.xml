@@ -9,16 +9,6 @@
     <depends>com.intellij.modules.lang</depends>
     <depends optional="true" config-file="android_config.xml">org.jetbrains.android</depends>
 
-<!--    <extensions defaultExtensionNs="com.intellij">-->
-<!--        <applicationService serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.services.MyApplicationService"/>-->
-<!--        <projectService serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.services.MyProjectService"/>-->
-<!--    </extensions>-->
-
-<!--    <applicationListeners>-->
-<!--        <listener class="me.haroldmartin.intellijbuildwebhooknotifier.listeners.MyProjectManagerListener"-->
-<!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
-<!--    </applicationListeners>-->
-
     <extensions defaultExtensionNs="com.intellij">
         <applicationConfigurable
                 parentId="tools"

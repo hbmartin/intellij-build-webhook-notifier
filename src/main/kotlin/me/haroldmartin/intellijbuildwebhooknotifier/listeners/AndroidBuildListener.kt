@@ -12,8 +12,8 @@ class AndroidBuildListener(project: Project) : BaseComponent {
     private val buildNotifier = ServiceLocator.buildNotifier
 
     init {
-        AndroidProjectBuildNotifications.subscribe(project) { ctx ->
-            (ctx as? GradleBuildContext)?.run {
+        AndroidProjectBuildNotifications.subscribe(project) { buildContext ->
+            (buildContext as? GradleBuildContext)?.run {
                 buildNotifier(
                     buildStatus = when {
                         buildResult.isBuildSuccessful -> BuildStatus.SUCCESS

@@ -16,20 +16,23 @@ Call a configurable webhook on build start, error, or success. Useful for sendin
 * Supports GET or POST calls when build starts, fails, or succeeds
 * POST supports `application/json` and `application/x-www-form-urlencoded` body content
 * Use `$project` and `$status` variables in either URL or body string to substitute project name and status
-* (TODO) optional unique hooks for non-success status
+* Option for unique hooks for starting and error
 * (TODO) unique per-project hooks
 
 ## Installation
 
 - Using IDE built-in plugin system:
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "intellij-build-webhook-notifier"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Build Webhook Notifier"</kbd> >
   <kbd>Install Plugin</kbd>
   
 - Manually:
 
   Download the [latest release](https://github.com/hbmartin/intellij-build-webhook-notifier/releases/latest) and install it manually using
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
+## Usage
+
 
 ## Contributing
 

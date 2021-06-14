@@ -36,7 +36,7 @@ class WebhookBuildNotifier(private val httpClient: HttpClient, private val logge
             BuildStatus.WARNING -> return
         }
 
-        val url = if (webhook.url.isNotEmpty()) webhook.url.substitute(buildStatus, projectName) else return
+        val url = if (webhook.url.trim().isNotEmpty()) webhook.url.substitute(buildStatus, projectName) else return
 
         val response: HttpResponse = when (webhook.method) {
             HttpMethod.GET -> httpClient.get(url)

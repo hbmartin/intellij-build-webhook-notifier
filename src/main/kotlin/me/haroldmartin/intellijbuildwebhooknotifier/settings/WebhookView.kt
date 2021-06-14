@@ -29,9 +29,9 @@ class WebhookView(label: String, private val topInset: Int = 0) {
             labelComponent.isVisible = viz
             urlTextField.isVisible = viz
             methodComboBox.isVisible = viz
-            bodyTextField.isVisible = viz
-            contentTypeComboBox.isVisible = viz
             separatorComponent.isVisible = viz
+            bodyTextField.isVisible = viz && methodComboBox.isNotGet
+            contentTypeComboBox.isVisible = viz && methodComboBox.isNotGet
         }
 
     var webhookModel: Webhook
@@ -45,11 +45,11 @@ class WebhookView(label: String, private val topInset: Int = 0) {
             urlTextField.text = newWebhook.url
             methodComboBox.item = newWebhook.method
             bodyTextField.text = newWebhook.body
-            bodyTextField.isVisible = methodComboBox.item != HttpMethod.GET
+            bodyTextField.isVisible = newWebhook.method.isNotGet
             HttpContentType.find(newWebhook.contentType)?.let {
                 contentTypeComboBox.item = it
             }
-            contentTypeComboBox.isVisible = methodComboBox.item != HttpMethod.GET
+            contentTypeComboBox.isVisible = newWebhook.method.isNotGet
         }
 
     init {
@@ -67,5 +67,8 @@ class WebhookView(label: String, private val topInset: Int = 0) {
     }
 }
 
+private val HttpMethod.isNotGet: Boolean
+    get() = this != HttpMethod.GET
+
 private val ComboBox<HttpMethod>.isNotGet: Boolean
-    get() = item != HttpMethod.GET
+    get() = item.isNotGet

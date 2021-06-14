@@ -20,9 +20,7 @@ class AppSettingsState : PersistentStateComponent<AppSettingsState> {
 
     override fun getState(): AppSettingsState = this
 
-    override fun loadState(state: AppSettingsState) {
-        XmlSerializerUtil.copyBean(state, this)
-    }
+    override fun loadState(state: AppSettingsState) = XmlSerializerUtil.copyBean(state, this)
 
     companion object {
         val instance: AppSettingsState

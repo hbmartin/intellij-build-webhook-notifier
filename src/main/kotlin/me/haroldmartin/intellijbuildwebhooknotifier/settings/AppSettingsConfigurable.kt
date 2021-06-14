@@ -41,14 +41,8 @@ class AppSettingsConfigurable : Configurable {
     }
 
     override fun reset() {
-        settingsComponent?.let {
-            with(AppSettingsState.instance) {
-                it.successWebhook.webhookModel = successWebhook
-                it.errorWebhook.webhookModel = errorWebhook
-                it.startingWebhook.webhookModel = startingWebhook
-                it.uniqueErrorCheckBox.isSelected = uniqueError
-                it.uniqueStartingCheckBox.isSelected = uniqueStarting
-            }
+        settingsComponent?.apply {
+            setState(AppSettingsState.instance)
         }
     }
 

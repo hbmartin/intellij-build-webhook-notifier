@@ -29,10 +29,9 @@ class BuildListener(project: Project) : BaseComponent {
 
     private val executionListener = object : ExecutionListener {
         override fun processStartScheduled(executorId: String, env: ExecutionEnvironment) {
-            println("processStartScheduled")
             buildNotifier(
                 buildStatus = BuildStatus.STARTED,
-                projectName = project.name + " -- EL"
+                projectName = project.name
             )
         }
     }

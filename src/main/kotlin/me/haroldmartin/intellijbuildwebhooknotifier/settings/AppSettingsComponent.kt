@@ -30,6 +30,16 @@ class AppSettingsComponent {
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }
+
+    fun setState(instance: AppSettingsState) {
+        successWebhook.webhookModel = instance.successWebhook
+        errorWebhook.webhookModel = instance.errorWebhook
+        startingWebhook.webhookModel = instance.startingWebhook
+        uniqueErrorCheckBox.isSelected = instance.uniqueError
+        uniqueStartingCheckBox.isSelected = instance.uniqueStarting
+        errorWebhook.isVisible = instance.uniqueError
+        startingWebhook.isVisible = instance.uniqueStarting
+    }
 }
 
 private fun JBCheckBox.hides(webhookView: WebhookView): JBCheckBox = apply {

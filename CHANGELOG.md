@@ -1,7 +1,14 @@
-<!-- Keep a Changelog guide -> https://keepachangelog.com -->
+# Build Webhook Notifier Changelog
 
-# intellij-build-webhook-notifier Changelog
+## [0.1.1] - 2021-06-18
+### Fixed
+- Changelog
+- Android build error notification
 
-## [Unreleased]
+## [0.1.0] - 2021-06-14
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+- Added options for unique non-success webhooks
+
+## [0.0.1] - 2021-06-09
+### Added
+- Initial release

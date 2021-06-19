@@ -1,5 +1,9 @@
 # Build Webhook Notifier Changelog
 
+## [Unreleased]
+## [0.2.0]
+### Added
+
 ## [0.1.1] - 2021-06-18
 ### Fixed
 - Changelog

@@ -6,8 +6,7 @@
 
 ## [0.1.1] - 2021-06-18
 ### Fixed
-- Changelog
-- Android build error notification
+- Release fix for changelog
 
 ## [0.1.0] - 2021-06-14
 ### Added

@@ -6,7 +6,7 @@ tag:
 	git push --tags
 
 check-master:
-	if [[ `git rev-parse --abbrev-ref HEAD` != "master" ]]; then exit 1; fi
+	if [[ `git rev-parse --abbrev-ref HEAD` != "main" ]]; then exit 1; fi
 
 check-unstaged:
 	git diff-index --quiet HEAD --

@@ -1,6 +1,6 @@
 # Build Webhook Notifier <img align="right" src="media/icon.png" />
 
-[![Version](https://img.shields.io/jetbrains/plugin/v/me.haroldmartin.intellijbuildwebhooknotifier.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/me.haroldmartin.intellijbuildwebhooknotifier.svg)](https://plugins.jetbrains.com/plugin/16984-build-webhook-notifier)
 ![Build](https://github.com/hbmartin/intellij-build-webhook-notifier/workflows/Build/badge.svg)
 [![GitHub issues](https://img.shields.io/github/issues/hbmartin/intellij-build-webhook-notifier)](https://github.com/hbmartin/intellij-build-webhook-notifier/issues)
 [![CodeFactor](https://www.codefactor.io/repository/github/hbmartin/intellij-build-webhook-notifier/badge)](https://www.codefactor.io/repository/github/hbmartin/intellij-build-webhook-notifier)

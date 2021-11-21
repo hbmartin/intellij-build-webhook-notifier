@@ -14,6 +14,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.3.0"
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
     id("org.jetbrains.changelog") version "1.3.1"
+    id("org.jetbrains.qodana") version "0.1.13"
     id("io.gitlab.arturbosch.detekt")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
     id("com.github.ben-manes.versions") version "0.39.0"
@@ -50,7 +51,15 @@ intellij {
 // Configure gradle-changelog-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-changelog-plugin
 changelog {
-    version = properties("pluginVersion")
+    version.set(properties("pluginVersion"))
+}
+
+// Configure Gradle Qodana Plugin - read more: https://github.com/JetBrains/gradle-qodana-plugin
+qodana {
+    cachePath.set(projectDir.resolve(".qodana").canonicalPath)
+    reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
+    saveReport.set(true)
+    showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
 // Configure detekt plugin.
@@ -67,17 +76,18 @@ detekt {
 }
 
 tasks {
-    // Set the compatibility versions to 1.8
-    withType<JavaCompile> {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
-    }
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-
-    withType<Detekt> {
-        jvmTarget = "1.8"
+    // Set the JVM compatibility versions
+    properties("javaVersion").let {
+        withType<JavaCompile> {
+            sourceCompatibility = it
+            targetCompatibility = it
+        }
+        withType<KotlinCompile> {
+            kotlinOptions.jvmTarget = it
+        }
+        withType<Detekt> {
+            jvmTarget = "1.8"
+        }
     }
 
     patchPluginXml {
@@ -104,6 +114,12 @@ tasks {
 
     runPluginVerifier {
         ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
+    }
+
+    signPlugin {
+        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
+        privateKey.set(System.getenv("PRIVATE_KEY"))
+        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
     }
 
     publishPlugin {

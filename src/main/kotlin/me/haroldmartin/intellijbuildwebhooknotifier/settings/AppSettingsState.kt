@@ -24,6 +24,6 @@ class AppSettingsState : PersistentStateComponent<AppSettingsState> {
 
     companion object {
         val instance: AppSettingsState
-            get() = ApplicationManager.getApplication().getComponent(AppSettingsState::class.java)
+            get() = ApplicationManager.getApplication().getService(AppSettingsState::class.java)
     }
 }

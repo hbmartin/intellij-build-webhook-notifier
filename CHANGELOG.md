@@ -1,8 +1,11 @@
 # Build Webhook Notifier Changelog
 
 ## [Unreleased]
-## [0.2.0]
-### Added
+
+## [0.1.2] - 2021-12-14
+### Changed
+- Bumped minimum IDE version to 2020.3.1
+- Upgraded IDE API usage for service registration
 
 ## [0.1.1] - 2021-06-18
 ### Fixed

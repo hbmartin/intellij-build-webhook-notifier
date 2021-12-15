@@ -41,9 +41,7 @@ class AppSettingsConfigurable : Configurable {
     }
 
     override fun reset() {
-        settingsComponent?.apply {
-            setState(AppSettingsState.instance)
-        }
+        settingsComponent?.setState(AppSettingsState.instance)
     }
 
     override fun disposeUIResources() {

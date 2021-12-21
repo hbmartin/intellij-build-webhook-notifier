@@ -7,6 +7,7 @@
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
     <depends optional="true" config-file="android_config.xml">org.jetbrains.android</depends>
 
     <extensions defaultExtensionNs="com.intellij">

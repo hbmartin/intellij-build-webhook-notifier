@@ -112,6 +112,10 @@ tasks {
         changeNotes.set(provider { changelog.getLatest().toHTML() })
     }
 
+    runIde {
+        jvmArgs = listOf("-Xmx2G")
+    }
+
     runPluginVerifier {
         ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
     }

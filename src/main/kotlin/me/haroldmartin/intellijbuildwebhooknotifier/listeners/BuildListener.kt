@@ -20,6 +20,7 @@ class BuildListener(project: Project) : BaseComponent {
                 buildStatus = when {
                     errors > 0 -> BuildStatus.ERROR
                     warnings > 0 -> BuildStatus.WARNING
+                    aborted -> BuildStatus.CANCELLED
                     else -> BuildStatus.SUCCESS
                 },
                 projectName = project.name

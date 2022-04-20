@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
-## [0.1.3] - 2021-12-14
+## [0.1.3] - 2022-04-22
 ### Changed
+- Bumped minimum IDE version to 2021.1.1
+- Detect `cancelled` status
 - Internal upgrades
+### Removed
+- Removed Android `warning` status
 
 ## [0.1.2] - 2021-12-14
 ### Changed

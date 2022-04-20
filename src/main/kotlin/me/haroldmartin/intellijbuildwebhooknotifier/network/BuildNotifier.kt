@@ -4,6 +4,7 @@ import com.intellij.openapi.diagnostic.Logger
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.post
+import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.request
 import io.ktor.http.ContentType
@@ -42,7 +43,9 @@ class WebhookBuildNotifier(private val httpClient: HttpClient, private val logge
             HttpMethod.GET -> httpClient.get(url)
             HttpMethod.POST -> httpClient.post(urlString = url) {
                 webhook.contentType?.let { contentType(ContentType.parse(it)) }
-                webhook.body?.let { body = it.substitute(buildStatus, projectName) }
+                webhook.body?.let {
+                    setBody(it.substitute(buildStatus, projectName))
+                }
             }
         }
 

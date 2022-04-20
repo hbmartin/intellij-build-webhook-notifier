@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.3] - 2021-12-14
+### Changed
+- Internal upgrades
+
 ## [0.1.2] - 2021-12-14
 ### Changed
 - Bumped minimum IDE version to 2020.3.1

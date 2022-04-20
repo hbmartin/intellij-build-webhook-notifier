@@ -34,7 +34,7 @@ class WebhookBuildNotifier(private val httpClient: HttpClient, private val logge
             BuildStatus.SUCCESS -> settings.successWebhook
             BuildStatus.ERROR -> if (settings.uniqueError) settings.errorWebhook else settings.successWebhook
             BuildStatus.STARTED -> if (settings.uniqueStarting) settings.startingWebhook else settings.successWebhook
-            BuildStatus.WARNING -> return
+            BuildStatus.WARNING, BuildStatus.CANCELLED -> return
         }
 
         val url = if (webhook.url.trim().isNotEmpty()) webhook.url.substitute(buildStatus, projectName) else return

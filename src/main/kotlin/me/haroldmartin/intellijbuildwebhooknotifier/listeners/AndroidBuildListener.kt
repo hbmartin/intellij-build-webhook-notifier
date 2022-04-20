@@ -17,7 +17,7 @@ class AndroidBuildListener(project: Project) : BaseComponent {
                 buildNotifier(
                     buildStatus = when {
                         buildResult.isBuildSuccessful -> BuildStatus.SUCCESS
-                        buildResult.getCompilerMessages(Message.Kind.WARNING).isNotEmpty() -> BuildStatus.WARNING
+                        buildResult.isBuildCancelled -> BuildStatus.CANCELLED
                         else -> BuildStatus.ERROR
                     },
                     projectName = project.name

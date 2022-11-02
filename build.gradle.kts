@@ -11,13 +11,13 @@ plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm")
     // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-    id("org.jetbrains.intellij") version "1.5.3"
+    id("org.jetbrains.intellij") version "1.9.0"
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
     id("org.jetbrains.changelog") version "1.3.1"
     id("org.jetbrains.qodana") version "0.1.13"
     id("io.gitlab.arturbosch.detekt")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
-    id("com.github.ben-manes.versions") version "0.42.0"
+    id("com.github.ben-manes.versions") version "0.43.0"
 }
 
 group = properties("pluginGroup")
@@ -30,7 +30,7 @@ repositories {
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
 }

@@ -67,6 +67,7 @@ qodana {
 detekt {
     config = files("./detekt-config.yml")
     buildUponDefaultConfig = true
+    allRules = true
 
     reports {
         html.enabled = false

@@ -3,6 +3,7 @@ package me.haroldmartin.intellijbuildwebhooknotifier.listeners
 import com.android.tools.idea.gradle.project.build.BuildContext
 import com.android.tools.idea.gradle.project.build.GradleBuildListener
 import com.android.tools.idea.gradle.project.build.GradleBuildState
+import com.android.tools.idea.gradle.project.build.invoker.GradleBuildInvoker
 import com.intellij.openapi.components.BaseComponent
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
@@ -13,12 +14,16 @@ import me.haroldmartin.intellijbuildwebhooknotifier.model.BuildStatus as WhStatu
 
 class AndroidBuildListener(project: Project) : BaseComponent {
     private val buildNotifier = ServiceLocator.buildNotifier
-    private val logger by lazy { Logger.getInstance("Webhook") }
+    private val logger: Logger = ServiceLocator.logger
 
     init {
         GradleBuildState.subscribe(
             project,
             object : GradleBuildListener {
+                override fun buildExecutorCreated(request: GradleBuildInvoker.Request) {
+                    logger.warn("buildExecutorCreated")
+                }
+
                 override fun buildStarted(context: BuildContext) {
                     logger.warn("buildStarted")
                     buildNotifier(BuildStatus.STARTED, project.name)

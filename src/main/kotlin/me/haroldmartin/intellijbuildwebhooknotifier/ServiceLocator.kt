@@ -11,7 +11,7 @@ interface NotifierLocator {
 }
 
 object ServiceLocator : NotifierLocator {
-    private val logger by lazy { Logger.getInstance("Webhooks") }
+    val logger by lazy { Logger.getInstance("Webhooks") }
     private val httpClient by lazy { HttpClient(CIO) }
     override val buildNotifier by lazy { WebhookBuildNotifier(httpClient = httpClient, logger = logger) }
 }

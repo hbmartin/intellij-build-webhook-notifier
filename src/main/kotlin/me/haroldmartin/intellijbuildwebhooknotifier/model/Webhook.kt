@@ -1,4 +1,3 @@
-@file:Suppress("ParameterListWrapping")
 package me.haroldmartin.intellijbuildwebhooknotifier.model
 
 import com.intellij.util.xmlb.annotations.Tag

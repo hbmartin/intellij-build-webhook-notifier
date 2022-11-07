@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-11-07
+### Changed
+- Support for Android Studio Dolphin
+- Bumped minimum IDE version to 2021.3 (213)
+- Install no longer requires IDE restart
+- Internal upgrades
+
 ## [0.1.3] - 2022-04-22
 ### Changed
 - Bumped minimum IDE version to 2021.1.1

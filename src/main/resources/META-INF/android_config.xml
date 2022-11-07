@@ -1,7 +1,7 @@
 <idea-plugin>
-    <project-components>
-        <component>
-            <implementation-class>me.haroldmartin.intellijbuildwebhooknotifier.listeners.AndroidBuildListener</implementation-class>
-        </component>
-    </project-components>
+    <projectListeners>
+        <listener
+                class="me.haroldmartin.intellijbuildwebhooknotifier.listeners.AndroidBuildListener"
+                topic="com.android.tools.idea.gradle.project.build.GradleBuildListener"/>
+    </projectListeners>
 </idea-plugin>

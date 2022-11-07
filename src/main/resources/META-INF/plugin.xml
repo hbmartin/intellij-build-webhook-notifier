@@ -20,9 +20,9 @@
                 serviceImplementation="me.haroldmartin.intellijbuildwebhooknotifier.settings.AppSettingsState"/>
     </extensions>
 
-    <project-components>
-        <component>
-            <implementation-class>me.haroldmartin.intellijbuildwebhooknotifier.listeners.BuildListener</implementation-class>
-        </component>
-    </project-components>
+    <projectListeners>
+        <listener
+                class="me.haroldmartin.intellijbuildwebhooknotifier.listeners.BuildListener"
+                topic="com.intellij.task.ProjectTaskListener"/>
+    </projectListeners>
 </idea-plugin>

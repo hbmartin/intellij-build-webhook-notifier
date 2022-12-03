@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2022-12-03
+### Changed
+- Support for IntelliJ 2022.3 (223)
+
 ## [0.2.0] - 2022-11-07
 ### Changed
 - Support for Android Studio Dolphin

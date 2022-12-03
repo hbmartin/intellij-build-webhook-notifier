@@ -14,4 +14,7 @@ check-unstaged:
 pull:
 	git pull
 
-release: check-master check-unstaged pull lint tag
+sign:
+	./gradlew buildPlugin signPlugin
+
+release: check-master check-unstaged pull lint tag sign

@@ -3,6 +3,7 @@ import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 fun properties(key: String) = project.findProperty(key).toString()
+fun environment(key: String) = providers.environmentVariable(key)
 
 val detektVersion: String = properties("detektVersion")
 val ktorVersion: String = properties("ktorVersion")
@@ -11,13 +12,13 @@ plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm")
     // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
-    id("org.jetbrains.intellij") version "1.15.0"
+    id("org.jetbrains.intellij") version "1.16.0"
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
     id("org.jetbrains.changelog") version "1.3.1"
     id("org.jetbrains.qodana") version "0.1.13"
     id("io.gitlab.arturbosch.detekt")
-    id("org.jlleitschuh.gradle.ktlint") version "11.5.1"
-    id("com.github.ben-manes.versions") version "0.47.0"
+    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    id("com.github.ben-manes.versions") version "0.49.0"
 }
 
 group = properties("pluginGroup")
@@ -61,10 +62,10 @@ changelog {
 
 // Configure Gradle Qodana Plugin - read more: https://github.com/JetBrains/gradle-qodana-plugin
 qodana {
-    cachePath.set(projectDir.resolve(".qodana").canonicalPath)
-    reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
-    saveReport.set(true)
-    showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
+    cachePath = provider { file(".qodana").canonicalPath }
+    reportPath = provider { file("build/reports/inspections").canonicalPath }
+    saveReport = true
+    showReport = environment("QODANA_SHOW_REPORT").map { it.toBoolean() }.getOrElse(false)
 }
 
 // Configure detekt plugin.
@@ -92,7 +93,7 @@ tasks {
             kotlinOptions.jvmTarget = it
         }
         withType<Detekt> {
-            jvmTarget = "1.8"
+            jvmTarget = JavaVersion.VERSION_17.toString()
         }
     }
 
@@ -125,6 +126,15 @@ tasks {
     runPluginVerifier {
         ideVersions.set(properties("pluginVerifierIdeVersions").split(',').map(String::trim).filter(String::isNotEmpty))
     }
+    // Configure UI tests plugin
+    // Read more: https://github.com/JetBrains/intellij-ui-test-robot
+    runIdeForUiTests {
+        systemProperty("robot-server.port", "8082")
+        systemProperty("ide.mac.message.dialogs.as.sheets", "false")
+        systemProperty("jb.privacy.policy.text", "<!--999.999-->")
+        systemProperty("jb.consents.confirmation.enabled", "false")
+    }
+
 
     signPlugin {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
